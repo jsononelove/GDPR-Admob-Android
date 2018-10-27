@@ -4,6 +4,15 @@
   <meta charset="utf-8"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
   <style type="text/css">
+    /* Overwrite the default to keep the scrollbar always visible */
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, .4);
+      border-radius: 3px;
+    }
     html,
     body {
       margin: 0;
@@ -149,7 +158,7 @@
     }
     .button {
       border-radius: 8px;
-      border: 1px solid #e0e0e0;
+      border: 1px solid #DADCE0;
       box-sizing: border-box;
       cursor: pointer;
       padding: 12px 16px 14px;
@@ -186,33 +195,47 @@
       color: rgba(0, 0, 0, .71);
       font-family: 'Roboto', Arial, sans-serif;
       font-size: 14px;
-      padding: 0 8px;
+      padding: 0;
       text-align: center;
       min-height: 36px;
       line-height: 18px;
+    }
+    #providers::after {
+      background-color: #DADCE0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
     }
     #providers > div {
       box-sizing: border-box;
       padding: 2px 10px;
     }
     #providers ul {
+      box-sizing: border-box;
       font-size: 12px;
-      line-height: 17px;
       list-style-type: none;
-      margin-bottom: -2px;
-      margin-right: -8px;
-      max-height: 132px;
+      margin-bottom: 0;
+      margin-right: -2px;
       overflow: auto;
-      padding: 0 8px;
+      padding: 0 0 12px;
       text-align: left;
     }
     #providers li {
+      border: 1px solid #DADCE0;
+      border-radius: 8px;
       display: inline-block;
-      width: 46%;
-      margin-right: 8px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      margin-bottom: 5px;
+      margin-right: 2px;
+    }
+    #providers li:active {
+      background-color: #EEEEEE;
+    }
+    #providers a {
+      color: #3C4043;
+      display: inline-block;
+      padding: 6px 10px;
     }
     .how-use-data {
       font-size: 12px;
@@ -226,7 +249,7 @@
       background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMHB4IiBoZWlnaHQ9IjIwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzQyODVGNCI+ICAgIDxwYXRoIGQ9Ik0xMS42NyAzLjg3TDkuOSAyLjEgMCAxMmw5LjkgOS45IDEuNzctMS43N0wzLjU0IDEyeiIvPiAgICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+PC9zdmc+);
       background-position: 14px center;
       background-repeat: no-repeat;
-      border: 1px solid #e0e0e0;
+      border: 1px solid #DADCE0;
       border-radius: 4px;
       color: #1A73E8;
       display: inline-block;
@@ -237,38 +260,6 @@
       padding: 0 16px 0 34px;
       vertical-align: middle;
     }
-    .next {
-      /*background-color: white;
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMHB4IiBoZWlnaHQ9IjIwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzQyODVGNCI+ICAgIDxwYXRoIGQ9Ik0xMS42NyAzLjg3TDkuOSAyLjEgMCAxMmw5LjkgOS45IDEuNzctMS43N0wzLjU0IDEyeiIvPiAgICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+PC9zdmc+);
-      background-position: 55px center;
-      background-repeat: no-repeat;*/
-      border: 1px solid #e0e0e0;
-      border-radius: 4px;
-      color: #1A73E8;
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 500;
-      height: 32px;
-      line-height: 32px;
-      padding: 0 34px 0 16px;
-      vertical-align: middle;
-      position: relative;
-    }
-
-    .next .icon {
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMHB4IiBoZWlnaHQ9IjIwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzQyODVGNCI+ICAgIDxwYXRoIGQ9Ik0xMS42NyAzLjg3TDkuOSAyLjEgMCAxMmw5LjkgOS45IDEuNzctMS43N0wzLjU0IDEyeiIvPiAgICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+PC9zdmc+);
-      height: 32px;
-      background-repeat: no-repeat;
-      font-size: 14px;
-      font-weight: 500;
-      width: 100%;
-      position: absolute;
-      left: -10;
-      top: 6px;
-      -webkit-transform: scaleX(-1);
-      transform: scaleX(-1);
-    }
-
     .agree {
       background-color: #1A73E8;
       border: 1px solid #1A73E8;
@@ -313,7 +304,7 @@
       text-decoration: none;
     }
     @media screen and (max-width: 410px) and (max-height: 730px) {
-      /* e.g. iPhone 4, 5, 6 portrait */
+      /* e.g. iPhone 4, 5, 6/7/8 portrait */
       #overlay {
         left: 10px;
         right: 10px;
@@ -342,7 +333,6 @@
         display: inline;
       }
       #providers {
-        display: inline;
         padding: 0;
       }
       .back.btn {
@@ -350,7 +340,7 @@
       }
     }
     @media screen and (max-width: 730px) and (max-height: 410px) {
-      /* e.g. iPhone 4, 5, 6 landscape */
+      /* e.g. iPhone 4, 5, 6/7/8 landscape */
       #overlay {
         left: 8px;
         right: 8px;
@@ -395,14 +385,8 @@
         font-size: 12px;
       }
       #providers {
-        display: inline;
         font-size: 12px;
         padding: 0;
-      }
-      #providers ul {
-        line-height: 15px;
-        margin-bottom: 0;
-        max-height: 120px;
       }
       .how-use-data {
         margin-top: 12px;
@@ -451,14 +435,10 @@
         display: inline;
       }
       #providers {
-        display: inline;
         padding: 0;
       }
       #providers ul {
-        padding: 0 16px;
-      }
-      #providers li {
-        width: 31%;
+        padding: 0 16px 12px;
       }
       .footer {
         margin-top: 20px;
@@ -467,15 +447,35 @@
         margin-top: 0;
       }
     }
+    @media screen and (min-height: 377px) and (max-height: 700px) {
+      /* e.g. iPhone 4, 5, 6/7/8 portrait, 6/7/8 Plus landscape */
+      #providers ul {
+        max-height: calc(100vh - 246px);
+      }
+    }
+    @media screen and (min-height: 701px) {
+      /* e.g. iPhone 6/7/8 Plus portrait or taller (tablets) */
+      #providers ul {
+        max-height: 460px;
+      }
+    }
+    @media screen and (min-height: 361px) and (max-height: 376px) {
+      /* e.g. iPhone 6/7/8, X landscape */
+      #providers ul {
+        max-height: calc(100vh - 212px);
+      }
+    }
+    @media screen and (max-height: 360px) {
+      /* e.g. iPhone 4, 5 landscape */
+      #providers ul {
+        max-height: calc(100vh - 230px);
+      }
+    }
   </style>
   <script type="text/javascript">
     var obj = {};
     var state = 'init';
     var consentDelayMs = 1000;
-    var maxProviderCount = 12;
-    var providersCount = 0;
-    var currentProviders = 0;
-    var providers = [];
      // Function that opens app privacy policy URL in a browser.
     var showAppPrivacyPolicy = function() {};
 
@@ -539,6 +539,7 @@
 
     function showProviders() {
       consentAnimation(obj.consent0El, 'in');
+      document.getElementById('providersList').scrollTop = 0;
     };
 
     function showUniqueIdInfo() {
@@ -553,8 +554,6 @@
           break;
         case 'back0':
           consentAnimation(obj.consent0El, 'out');
-          currentProviders = 0;
-          initProviders();
           break;
         case 'back1':
           consentAnimation(obj.consent1El, 'out');
@@ -570,10 +569,6 @@
         case 'install':
           // 'Install' on 'See no ads'
           dismissConsentModal('ad_free');
-          break;
-        case 'next0':
-          // Next APP
-          initProviders();
           break;
       }
     };
@@ -624,24 +619,7 @@
       if (!adNetworks) {
         throw Error('Error: invalid ad networks.');
       }
-
-      // // All ad networks must have publisher_consent_type `2`.
-      // for (var i = 0; i < adNetworks.length; i++) {
-      //   var adNetwork = adNetworks[i];
-      //   var publisherConsentType = adNetwork['publisher_consent_type'] || 0;
-      //   if (publisherConsentType != 2) {
-      //     throw Error('Error: consent form can be used with custom provider selection only.');
-      //   }
-      // }
     }
-
-    // Returns an onclick handler that opens a URL in a browser.
-      function createPolicyUrlOnClick(url) {
-        return function() {
-          openBrowser(url);
-          return false;  // Return false to prevent default click logic.
-        };
-      };
 
     function setUpConsentDialog(argsDictionary) {
       argsDictionary = argsDictionary || {};
@@ -725,6 +703,14 @@
         obj.titleAppNameEl.parentNode.insertBefore(appIconEl, obj.titleAppNameEl);
       }
 
+      // Returns an onclick handler that opens a URL in a browser.
+      function createPolicyUrlOnClick(url) {
+        return function() {
+          openBrowser(url);
+          return false;  // Return false to prevent default click logic.
+        };
+      };
+
       // Create the app's privacy policy URL handler.
       var app_privacy_url = formInfo['app_privacy_url'];
       if (!app_privacy_url) {
@@ -734,18 +720,35 @@
       showAppPrivacyPolicy = createPolicyUrlOnClick(app_privacy_url);
 
       // Update provider list.
-      providers = consentInfo['providers'] || [];
-      // Initialize Providers
-      initProviders();
+      var providers = consentInfo['providers'] || [];
+      var providersLen = providers.length;
+
+      obj.providersEl.innerHTML = '';
+      var providersList = document.createElement('ul');
+      providersList.setAttribute('id', 'providersList');
+      for (var i = 0; i < providersLen; i++) {
+        var provider = providers[i];
+        var providerTag = document.createElement('a');
+        providerTag.innerText = provider['company_name'];
+        providerTag.onclick = createPolicyUrlOnClick(provider['policy_url']);
+
+        var providerListItem = document.createElement('li');
+        providerListItem.appendChild(providerTag);
+        providersList.appendChild(providerListItem);
+      }
+      obj.providersEl.appendChild(providersList);
+
       // Hide unavailable options.
-      providersCount = providers.length;
-      var hasValidProviderCount = providers.length > 0 && providers.length <= maxProviderCount;
+      var hasValidProviderCount = providersLen > 0;
+      if (hasValidProviderCount) {
+        document.getElementById('providers_count').innerText = providersLen;
+      }
       var hasAnyNonPersonalizedOnlyPubId = consentInfo['has_any_npa_pub_id'] || false;
-      // if (!formInfo['offer_personalized'] ||
-      //     !hasValidProviderCount ||
-      //     hasAnyNonPersonalizedOnlyPubId) {
-      //   obj.btn0El.parentNode.removeChild(obj.btn0El);
-      // }
+      if (!formInfo['offer_personalized'] ||
+          !hasValidProviderCount ||
+          hasAnyNonPersonalizedOnlyPubId) {
+        obj.btn0El.parentNode.removeChild(obj.btn0El);
+      }
       if (!formInfo['offer_non_personalized']) {
         obj.btn1El.parentNode.removeChild(obj.btn1El);
       }
@@ -769,42 +772,6 @@
       }
 
       formLoadCompleted('success');
-    }
-
-    // Add Providers
-    function initProviders() {
-      if(currentProviders < providers.length) {
-        obj.providersEl.innerHTML = '';
-        var providersList = document.createElement('ul');
-        for (var i = currentProviders; i < currentProviders+maxProviderCount; i++) {
-          if(i < providers.length) {
-            var provider = providers[i];
-            var providerTag = document.createElement('a');
-            providerTag.innerText = provider['company_name'];
-            providerTag.onclick = createPolicyUrlOnClick(provider['policy_url']);
-            var providerListItem = document.createElement('li');
-            providerListItem.appendChild(providerTag);
-            providersList.appendChild(providerListItem);
-          } else {
-            break;
-          }
-        }
-        currentProviders += maxProviderCount;
-        if(currentProviders < providers.length-1) {
-          if(obj.nextEl.classList.contains('no-display')) {
-              obj.nextEl.classList.remove('no-display');
-            }
-        } else {
-          if(!obj.nextEl.classList.contains('no-display')) {
-              obj.nextEl.classList.add('no-display');
-            }
-        }
-        obj.providersEl.appendChild(providersList);
-      } else {
-        if(!obj.nextEl.classList.contains('no-display')) {
-          obj.nextEl.classList.add('no-display');
-        }
-      }
     }
 
     function showState(stateName) {
@@ -852,7 +819,6 @@
       obj.consent2El = document.getElementById('consent2');
       obj.providersEl = document.getElementById('providers');
       obj.backButtonEl = document.getElementById('back-btn');
-      obj.nextEl = document.getElementById('next');
     });
 
     window.onresize = function(event) {
@@ -883,7 +849,7 @@
             <div class="head_detail">
               <span id="change_anytime_text1">You can change your choice anytime for <span class="app_name">App Name</span> in the app settings.</span>
               <span id="head_detail_text">Our partners will collect data and use a unique identifier on your device to show you ads.
-                <a href="#" onclick="showProviders();">Learn how <span class="app_name">App Name</span> and our partners collect and use data</a>
+                <a href="#" onclick="showProviders();">Learn how <span class="app_name">App Name</span> and our <span id="providers_count"></span> partners collect and use data</a>
               </span>
             </div>
           </div>
@@ -907,7 +873,6 @@
           <div class="footer">
             <div class="actions">
               <div class="back btn" onclick="actionClick(event, 'back0')">Back</div>
-              <div id="next" class="next btn" onclick="actionClick(event, 'next0')">Next<span class="icon"></span></div>
             </div>
           </div>
         </div>
