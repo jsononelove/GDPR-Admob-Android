@@ -277,7 +277,7 @@ public class ConsentSDK {
             @Override
             public void onFailed(ConsentInformation consentInformation, String reason) {
                 if(DEBUG) {
-                    Log.d(LOG_TAG, "Failed to update: $reason");
+                    Log.d(LOG_TAG, "Failed to update: "reason");
                 }
                 // Update user status
                 updateUserStatus(consentInformation.isRequestLocationInEeaOrUnknown());
@@ -308,7 +308,7 @@ public class ConsentSDK {
                     @Override
                     public void onConsentFormError(String reason) {
                         if(DEBUG) {
-                            Log.d(LOG_TAG, "Consent Form ERROR: $reason");
+                            Log.d(LOG_TAG, "Consent Form ERROR: "reason");
                         }
                         // Callback on Error
                         if (callback != null) {
